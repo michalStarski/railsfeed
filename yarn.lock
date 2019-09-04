@@ -5835,6 +5835,11 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
+request@2.9.202:
+  version "2.9.202"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.9.202.tgz#c61399cdfbbefda5dc48653b0e9bea517d9f8497"
+  integrity sha1-xhOZzfu+/aXcSGU7DpvqUX2fhJc=
+
 request@^2.87.0, request@^2.88.0:
   version "2.88.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
@@ -6934,6 +6939,13 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+version@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/version/-/version-0.1.0.tgz#c98d8e8ee8bce906cc272dc8a74eeee8609720ac"
+  integrity sha1-yY2Ojui86QbMJy3Ip07u6GCXIKw=
+  dependencies:
+    request "2.9.202"
 
 vm-browserify@^1.0.1:
   version "1.1.0"
