@@ -24,15 +24,15 @@ ActiveRecord::Schema.define(version: 2019_09_04_160801) do
 
   create_table "posts", force: :cascade do |t|
     t.text "content"
-    t.integer "author_id", null: false
+    t.integer "user_id", null: false
     t.string "title"
     t.integer "likes"
     t.integer "sub_id", null: false
     t.integer "dislikes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["author_id"], name: "index_posts_on_author_id"
     t.index ["sub_id"], name: "index_posts_on_sub_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "subs", force: :cascade do |t|
@@ -51,6 +51,6 @@ ActiveRecord::Schema.define(version: 2019_09_04_160801) do
   end
 
   add_foreign_key "comments", "users"
-  add_foreign_key "posts", "authors"
   add_foreign_key "posts", "subs"
+  add_foreign_key "posts", "users"
 end

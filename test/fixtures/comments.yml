@@ -3,13 +3,11 @@
 one:
   content: MyText
   user: one
-  comment: one
   likes: 1
   dislikes: 1
 
 two:
   content: MyText
   user: two
-  comment: two
   likes: 1
   dislikes: 1
