@@ -2,9 +2,7 @@ require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
   def setup
-    @bob = User.new(name: 'Bob', email: 'bob@bob.test',
-                    password: '123', is_admin: false)
-    @comment = Comment.new(content: 'Foo Bar', user: @bob)
+    @comment = comments(:sample)
   end
 
   test 'valid comment' do

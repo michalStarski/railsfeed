@@ -2,10 +2,7 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   def setup
-    @bob = User.new(email: 'foo@bar.baz', password: '123',
-                    name: 'bob', is_admin: false)
-    @sub =  Sub.new(name: 'test sub')
-    @post = Post.new(user: @bob, title: 'Baz', sub: @sub, content: 'Foo bar')
+    @post = posts(:sample)
   end
 
   test 'valid post' do

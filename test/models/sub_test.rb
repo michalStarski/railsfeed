@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SubTest < ActiveSupport::TestCase
   def setup
-    @sub = Sub.new(name: 'foo')
+    @sub = subs(:sample)
   end
 
   test 'valid sub' do
