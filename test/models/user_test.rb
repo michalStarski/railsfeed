@@ -23,4 +23,16 @@ class UserTest < ActiveSupport::TestCase
     @user.name = nil
     refute @user.valid?
   end
+
+  test 'invalid with password not in between 6 and 20 chars' do
+    @user.password = '1'
+    refute @user.valid?
+    @user.password = '12345jksjdahdkadhsajkfndjkabvjbdjjsvajdbva'
+    refute @user.valid?
+  end
+
+  test 'invalid with name that has 1 character' do
+    @user.name = 'a'
+    refute @user.valid?
+  end
 end
