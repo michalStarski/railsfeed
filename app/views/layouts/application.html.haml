@@ -13,5 +13,8 @@
       = render 'navbar'
       %main.mdl-layout__content
         .page-content
+          - if flash[:notice]
+            - flash[:notice].each do |msg|
+              %div= msg
           = yield
     %script{:defer => "defer", :src => "https://code.getmdl.io/1.3.0/material.min.js"}
