@@ -1,0 +1,9 @@
+- if flash[:error]
+  %div= flash[:error]
+
+= form_with url: sessions_path, local: true do |f|
+  = f.label :email, 'Email address'
+  = f.email_field :email
+  = f.label :password
+  = f.password_field :password
+  = f.submit "Login"
