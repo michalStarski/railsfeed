@@ -1,4 +1,7 @@
-= form_with model: @article, url: users_path, class: 'user-create-form', scope: 'user', local: true do |f| 
+= flash[:notice]
+= session[:user]
+
+= form_with model: @user, url: users_path, scope: 'user', local: true do |f| 
   = f.label :email, 'Email address'
   = f.email_field :email
   = f.label :name, 'Username'
