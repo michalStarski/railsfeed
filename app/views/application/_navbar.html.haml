@@ -1,0 +1,22 @@
+/ Always shows a header, even in smaller screens.
+%header.mdl-layout__header
+  .mdl-layout__header-row
+    / Title
+    = link_to "Railsfeed", root_url, class: 'mdl-layout-title'
+    / Add spacer, to align navigation to the right
+    .mdl-layout-spacer
+    / Navigation. We hide it in small screens.
+    %nav.mdl-navigation.mdl-layout--large-screen-only
+      - unless current_user
+        = link_to "Login", login_url, class: 'mdl-navigation__link'
+      - else
+        %span.mdl-navigation__link= "Logged in as #{current_user.name}"
+        = link_to "Logout", logout_url, class: 'mdl-navigation__link' 
+.mdl-layout__drawer
+  %span.mdl-layout-title Title
+  %nav.mdl-navigation
+    %a.mdl-navigation__link{:href => ""} Link
+    %a.mdl-navigation__link{:href => ""} Link
+    %a.mdl-navigation__link{:href => ""} Link
+    %a.mdl-navigation__link{:href => ""} Link
+
