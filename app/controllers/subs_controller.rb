@@ -1,4 +1,6 @@
 class SubsController < ApplicationController
+  before_action :require_admin, only: %i[create new]
+
   def new
     @sub = Sub.new
   end
