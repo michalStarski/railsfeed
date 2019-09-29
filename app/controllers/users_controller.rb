@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = 'User creation successful'
+      flash[:notice] = ['User creation successful']
       redirect_to root_path
     else
       error_msg = @user.errors.full_messages
@@ -19,6 +19,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :name, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :avatar)
   end
 end
