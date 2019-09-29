@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
     user = User.find_by_id(session[:user_id])
     redirect_to root_url, status: 403 unless user&.is_admin
   end
+
+  def require_user
+    user = User.find_by_id(session[:user_id])
+    redirect_to root_url, status: 403 if user.nil?
+  end
 end
