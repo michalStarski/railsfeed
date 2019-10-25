@@ -1,3 +1,11 @@
 // Place all the styles related to the subs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "./utilities";
+
+.sub-banner {
+	width: 100vw;
+	height: px-to-rem(300);
+	background-size: cover;
+	background-position: center;
+}

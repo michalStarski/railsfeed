@@ -1,2 +1,2 @@
-%img{:src => url_for(@sub.background_pic)}
+%div{:style => "background-image: url('#{url_for(@sub.background_pic)}')", :class => "sub-banner"}
 %h1= @sub.name
