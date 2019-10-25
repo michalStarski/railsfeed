@@ -1,2 +1,7 @@
+%div{:style => "background-image: url('#{url_for(@sub.background_pic)}')", :class => "sub-banner"}
+  =link_to('Add a post', "/posts/new/#{@sub.id}")
+
+%a{:href => sub_path(@sub.id), :class => "sub-name"}=@sub.name
+
 %h1= @post.title
 %div= @post.content

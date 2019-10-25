@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_id(params[:id])
+    @sub = Sub.find(@post.sub_id)
   end
 
   private
