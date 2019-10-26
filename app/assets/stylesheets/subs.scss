@@ -8,6 +8,21 @@
 	height: px-to-rem(300);
 	background-size: cover;
 	background-position: center;
+	padding: 2rem 0;
+
+	&__link {
+		font-size: 2rem;
+		color: #fff;
+		text-decoration: none;
+		background: #000;
+		padding: 2rem;
+		transition: 0.3s;
+
+		&:hover {
+			background: #fff;
+			color: #000;
+		}
+	}
 }
 
 .sub-name {
@@ -18,4 +33,5 @@
 	color: #000;
 	text-decoration: none;
 	width: px-to-rem(250);
+	margin: 2rem auto;
 }

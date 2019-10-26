@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_user
+  before_action :require_user, only: %i[create new]
 
   def create
     @post = Post.new(post_params)
@@ -22,6 +22,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_id(params[:id])
     @sub = Sub.find(@post.sub_id)
+    @user = User.find_by_id(@post.user_id)
   end
 
   private

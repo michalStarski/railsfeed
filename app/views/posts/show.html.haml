@@ -1,7 +1,18 @@
 %div{:style => "background-image: url('#{url_for(@sub.background_pic)}')", :class => "sub-banner"}
-  =link_to('Add a post', "/posts/new/#{@sub.id}")
+  =link_to('Post something cool', "/posts/new/#{@sub.id}", { class: 'sub-banner__link'} )
 
 %a{:href => sub_path(@sub.id), :class => "sub-name"}=@sub.name
 
-%h1= @post.title
-%div= @post.content
+%div.post
+  %h1= @post.title
+  %div.post__metadata
+    %p= "Created by:"
+    %span.post__author-name= @user.name
+    %p= "Creation date: #{@post.created_at}"
+    %p= "Likes: #{@post.likes}"
+    %p= "Dislikes: #{@post.dislikes}"
+
+  %div= @post.content
+  %div.post__reactions
+    %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored.mdl-js-ripple-effect Like 
+    %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored.mdl-js-ripple-effect Dislike
