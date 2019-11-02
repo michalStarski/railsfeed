@@ -13,6 +13,8 @@
     %p= "Dislikes: #{@post.dislikes}"
 
   %div= @post.content
-  %div.post__reactions
-    =button_to("Like", { action: "reaction", type: 'like', disable_with: 'Submitting...', post_id: @post.id })
-    =button_to("Dislike", { action: "reaction", type: 'dislike', disable_with: 'Submitting...', post_id: @post.id })
+  - if @has_reacted
+    %div.post__reactions
+      =button_to("Like", { action: "reaction", type: 'like', disable_with: 'Submitting...', post_id: @post.id })
+      =button_to("Dislike", { action: "reaction", type: 'dislike', disable_with: 'Submitting...', post_id: @post.id })
+    %div= @has_reacted

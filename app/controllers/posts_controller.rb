@@ -23,21 +23,19 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
     @sub = Sub.find(@post.sub_id)
     @user = User.find_by_id(@post.user_id)
+    @has_reacted = Vote.where(user_id: @user.id, post_id: @post.id)
   end
 
   def reaction
-    # TODO: Create a VOTE Table that will save user's
-    # votes to prevent multiple votes
     @post = Post.find_by_id(params[:post_id])
+    current_user = User.find(session[:user_id])
+
+    @has_reacted = Post.first
     reaction_type = params[:type]
-
-    if reaction_type == 'like'
-      @post.update_attributes(likes: @post[:likes] + 1)
-    elsif reaction_type == 'dislike'
-      @post.update_attributes(dislikes: @post[:dislikes] + 1)
-    end
-
+    
     if @post.save
+      @vote = Vote.new(user: current_user, post: @post, type: 'like')
+      @vote.save
       flash[:notice] = ['Successfully reacted to a post']
       redirect_to @post
     else
