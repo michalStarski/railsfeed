@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_02_141147) do
+ActiveRecord::Schema.define(version: 2019_11_02_142231) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2019_11_02_141147) do
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "type"
+    t.string "reaction"
     t.index ["post_id"], name: "index_votes_on_post_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end

@@ -9,12 +9,11 @@
     %p= "Created by:"
     %span.post__author-name= @user.name
     %p= "Creation date: #{@post.created_at}"
-    %p= "Likes: #{@post.likes}"
-    %p= "Dislikes: #{@post.dislikes}"
+    %p= "Likes: #{@likes}"
+    %p= "Dislikes: #{@dislikes}"
 
   %div= @post.content
-  - if @has_reacted
+  - if current_user
     %div.post__reactions
-      =button_to("Like", { action: "reaction", type: 'like', disable_with: 'Submitting...', post_id: @post.id })
-      =button_to("Dislike", { action: "reaction", type: 'dislike', disable_with: 'Submitting...', post_id: @post.id })
-    %div= @has_reacted
+      =button_to("Like", { action: "reaction", type: 'like', disable_with: 'Submitting...', post_id: @post.id }, class: @like_btn_class)
+      =button_to("Dislike", { action: "reaction", type: 'dislike', disable_with: 'Submitting...', post_id: @post.id }, class: @dislike_btn_class)
