@@ -1,17 +1,18 @@
 %div{:style => "background-image: url('#{url_for(@sub.background_pic)}')", :class => "sub-banner"}
   =link_to('Post something cool', "/posts/new/#{@sub.id}", { class: 'sub-banner__link' })
 
-%a{:href => sub_path(@sub.id), :class => "sub-name"}=@sub.name
+%div.sub-header
+  %a{:href => sub_path(@sub.id), :class => "sub-name"}=@sub.name
+  %button.mdl-button.mdl-js-button.mdl-button--raised
+    Follow 
 
 .mdl-grid
   - @posts.each do |post|
-    // post.content.body.attachables[0].filename
     .mdl-cell.mdl-cell--6-col.mdl-cell--8-col-tablet.mdl-cell--12-col-phone
-      .demo-card-wide.mdl-card.mdl-shadow--2dp
+      .demo-card-wide.mdl-card.mdl-shadow--2dp.post-thumbnail{:style => "background-image: #{post.thumbnail ? "url('" + url_for(post.thumbnail) + "')" : "none"}"}
       .mdl-card__title
         %h2.mdl-card__title-text= post.title
       .mdl-card__actions.mdl-card--border
         %a{:href => "/posts/#{post.id}", :class => "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"} See more 
       .mdl-card__menu
         %button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
-          %i.material-icons share
