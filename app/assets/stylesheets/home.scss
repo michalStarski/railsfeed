@@ -6,3 +6,38 @@
 	color: #fff;
 	text-decoration: none;
 }
+
+.highlighted-subs {
+	padding: 2rem;
+
+	&__list {
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 256px);
+	}
+}
+
+.demo-card-image.mdl-card {
+	width: 256px;
+	height: 256px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	cursor: pointer;
+}
+
+.demo-card-image__subname {
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.2);
+	width: 100%;
+	height: 40px;
+}
