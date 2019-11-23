@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_02_142231) do
+ActiveRecord::Schema.define(version: 2019_11_23_205741) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -66,6 +66,13 @@ ActiveRecord::Schema.define(version: 2019_11_02_142231) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subs_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "sub_id"
+    t.index ["sub_id"], name: "index_subs_users_on_sub_id"
+    t.index ["user_id"], name: "index_subs_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
