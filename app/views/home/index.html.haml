@@ -1,6 +1,6 @@
 %section.highlighted-subs
 
-  %h1.highlighted-subs__title Highlighted Subs
+  %h2.highlighted-subs__title Highlighted Subs
   %ul.highlighted-subs__list
     - @highlighted_subs.each do |sub|
       %a{ :href => sub_path(sub) }
@@ -8,3 +8,8 @@
           %span.demo-card-image__subname= sub.name 
 
 %hr
+
+- if current_user
+  %section.feed
+
+    %h2.feed__title Your feed
