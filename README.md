@@ -1,24 +1,20 @@
-# README
+# Railsfeed
+### Simple reddit-like clone written in Ruby in Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Running the application
 
-Things you may want to cover:
+To run the application, first install the necessary dependencies
+```shell
+$ bundle install
+```
 
-* Ruby version
+You can run and manage test environment by using **rails cli** i.e to start a dev server:
+```shell
+$ rails s
+```
 
-* System dependencies
+App will be avaliable under **localhost:3000**
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Rails version
+Project is currently running on Ruby on Rails version **6**
