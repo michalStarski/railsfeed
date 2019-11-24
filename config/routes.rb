@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get '/posts/new/:sub', to: 'posts#new'
   post '/posts/reaction/:type', to: 'posts#reaction'
+  post '/subs/:id/follow', to: 'subs#follow'
 
 end

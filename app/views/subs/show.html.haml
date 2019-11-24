@@ -3,8 +3,8 @@
 
 %div.sub-header
   %a{:href => sub_path(@sub.id), :class => "sub-name"}=@sub.name
-  %button.mdl-button.mdl-js-button.mdl-button--raised
-    Follow 
+  - if current_user
+    =button_to(@has_user_followed ? "Unfollow" : "Follow", { action: "follow" })
 
 .mdl-grid
   - @posts.each do |post|
