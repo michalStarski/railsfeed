@@ -11,5 +11,7 @@
 
 - if current_user
   %section.feed
-
-    %h2.feed__title Your feed
+    %h2.feed__title My feed
+    %div= @my_feed_posts
+    
+    %a{ :href => "#" } See more
