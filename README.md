@@ -1,5 +1,5 @@
 # Railsfeed
-### Simple reddit-like clone written in Ruby in Rails
+### Simple reddit-like application written in Ruby in Rails
 
 ## Running the application
 
