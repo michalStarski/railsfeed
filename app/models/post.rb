@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  has_many :comments
+
   belongs_to :user
   belongs_to :sub
 
@@ -10,8 +12,7 @@ class Post < ApplicationRecord
   # the first one
   def thumbnail
     image = content.embeds.find { |e| e.image? }
-    puts image
 
-    return image || nil
+    image || nil
   end
 end

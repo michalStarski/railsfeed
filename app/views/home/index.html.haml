@@ -4,8 +4,12 @@
   %ul.highlighted-subs__list
     - @highlighted_subs.each do |sub|
       %a{ :href => sub_path(sub) }
-        %li.demo-card-image.mdl-card.mdl-shadow--2dp{ :style => "background-image: url('#{url_for(sub.background_pic)}')" }
-          %span.demo-card-image__subname= sub.name 
+        - if sub.background_pic.nil?
+          %li.demo-card-image.mdl-card.mdl-shadow--2dp{ :style => "background-image: url('#{url_for(sub.background_pic)}')" }
+            %span.demo-card-image__subname= sub.name 
+        - else
+          %li.demo-card-image.mdl-card.mdl-shadow--2dp
+            %span.demo-card-image__subname= sub.name 
 
 %hr
 

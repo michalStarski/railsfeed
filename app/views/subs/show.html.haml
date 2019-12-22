@@ -1,5 +1,8 @@
-%div{:style => "background-image: url('#{url_for(@sub.background_pic)}')", :class => "sub-banner"}
-  =link_to('Post something cool', "/posts/new/#{@sub.id}", { class: 'sub-banner__link' })
+- if @sub.background_pic.nil?
+  %div{:style => "background-image: url('#{url_for(@sub.background_pic)}')", :class => "sub-banner"}
+- else
+  %div{:class => "sub-banner"}
+=link_to('Post something cool', "/posts/new/#{@sub.id}", { class: 'sub-banner__link' })
 
 %div.sub-header
   %a{:href => sub_path(@sub.id), :class => "sub-name"}=@sub.name

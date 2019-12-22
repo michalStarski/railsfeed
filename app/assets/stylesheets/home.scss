@@ -13,7 +13,9 @@
 	&__list {
 		padding: 0;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, 256px);
+    grid-template-columns: repeat(auto-fit, 256px);
+    grid-gap: 2rem;
+    justify-content: center;
 	}
 }
 
