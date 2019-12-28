@@ -1,4 +1,4 @@
-- if @sub.background_pic.nil?
+- if @sub.background_pic.attached?
   %div{:style => "background-image: url('#{url_for(@sub.background_pic)}')", :class => "sub-banner"}
 - else
   %div{:class => "sub-banner"}

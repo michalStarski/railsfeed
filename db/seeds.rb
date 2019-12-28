@@ -1,4 +1,5 @@
 # Mock data
+
 sub_names = ['Dank Memes', 'Games', 'Global', 'Technology']
 
 comments = {
@@ -90,30 +91,29 @@ User.create([
 
 # Create mock posts
 100.times do
-  sub_name = sub_names[(rand * sub_names.length).floor]
+  rand_sub = Sub.order("RANDOM()").first
   Post.create({
     content: lorem_ipsum,
     user: User.order("RANDOM()").first,
-    title: comments[sub_name][(rand * comments[sub_name].length).floor],
-    sub: Sub.where(:name => sub_name).first,
+    title: comments[rand_sub.name][(rand * comments[rand_sub.name].length).floor],
+    sub: rand_sub,
   })
 end
 
 # Create mock comments
 100.times do
-  sub_name = sub_names[(rand * sub_names.length).floor]
+  rand_sub = Sub.order("RANDOM()").first
   Comment.create({
-    content: comments[sub_name][(rand * comments[sub_name].length).floor],
+    content: comments[rand_sub.name][(rand * comments[rand_sub.name].length).floor],
     user: User.order("RANDOM()").first,
-    likes: 0,
-    dislikes: 0,
+    post: Post.order("RANDOM()").first
   })
 end
 
 # Create mock reactions + Make every user follow a sub
 User.all.each do |user|
   Post.all.each do |post|
-    reaction = (rand * 2).floor ? "like" : "dislike"
+    reaction = (rand * 2).floor === 1 ? "like" : "dislike"
     Vote.create({
       user: user,
       post: post,
