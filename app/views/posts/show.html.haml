@@ -28,3 +28,20 @@
     %div.post__reactions
       =button_to("Like", { action: "reaction", type: 'like', disable_with: 'Submitting...', post_id: @post.id }, class: @like_btn_class)
       =button_to("Dislike", { action: "reaction", type: 'dislike', disable_with: 'Submitting...', post_id: @post.id }, class: @dislike_btn_class)
+
+%div.comments
+  %h2= "Comments: (#{@comments.count})"
+  - @comments.each do |comment|
+    %div.comments__comment-block
+      %div.comments__author-info
+        - if comment.user.avatar.attached?
+          %div{ :style => "background-image: url('#{url_for(comment.user.avatar)}')",
+          :class => "comments__author-avatar comments__author-avatar--with-avatar" }
+        - else
+          %div.comments__author-avatar.comments__author-avatar--without-avatar
+        %strong= comment.user.name
+
+      %p.comments__content
+        = comment.content
+
+        

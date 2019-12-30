@@ -22,6 +22,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_id(params[:id])
     @sub = Sub.find(@post.sub_id)
+    @comments = Comment.where(post: @post)
     @user = User.find_by_id(@post.user_id)
     @user_reaction = Vote.where(user_id: @user.id, post_id: @post.id).first
     @likes = Vote.where(reaction: 'like').count
@@ -29,7 +30,7 @@ class PostsController < ApplicationController
     @like_btn_class = @user_reaction&.reaction == 'like' ? 
       'mdl-button mdl-js-button mdl-button--primary': 
       'mdl-button mdl-js-button mdl-button--raised mdl-button--colored'
-    @dislike_btn_class = @user_reaction&.reaction =='dislike' ?
+    @dislike_btn_class = @user_reaction&.reaction == 'dislike' ?
       'mdl-button mdl-js-button mdl-button--accent':
       'mdl-button mdl-js-button mdl-button--raised mdl-button--accent'
   end
