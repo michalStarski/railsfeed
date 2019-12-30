@@ -41,11 +41,17 @@ lorem_ipsum = %(
 
 # Create mock subs
 sub_names.each do |sub_name|
-  Sub.create(:name => sub_name)
+  sub = Sub.create(:name => sub_name)
+  sub.background_pic.attach(
+    io: File.open(
+    File.join(Rails.root, 'app/assets/images/mock/',
+              "mock#{(rand * 6).floor}.jpg")),
+    filename: "#{sub.name}#{rand * 10}-bg-image.jpg"
+  )
 end
 
 # Create mock users
-User.create([
+users = User.create([
   {
     name: 'Bob',
     email: 'bob@gmail.com',
@@ -88,6 +94,16 @@ User.create([
     is_admin: true,
   },
 ])
+
+# Attach avatars to the users
+users.each do |user|
+  user.avatar.attach(
+    io: File.open(
+    File.join(Rails.root, 'app/assets/images/mock/',
+              "mock#{(rand * 6).floor}.jpg")),
+    filename: "#{user.name}#{rand * 10}-avatar.jpg"
+  )
+end
 
 # Create mock posts
 100.times do

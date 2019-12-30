@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     if current_user
       @my_feed_posts = Post.where(
         sub_id: current_user.subs
-      ).order('created_at DESC').limit(4).inspect
+      ).order('created_at DESC').limit(8)
     end
 
   end

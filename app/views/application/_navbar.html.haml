@@ -10,6 +10,13 @@
       - unless current_user
         = link_to "Login", login_url, class: 'mdl-navigation__link'
       - else
+        - if current_user.avatar.attached?
+          %div{ :style => "background-image: url('#{url_for(current_user.avatar)}')",
+          :class => "nav-avatar nav-avatar--with-avatar" }
+        - else
+          %div.nav-avatar.nav-avatar--without-avatar
+            = current_user.name[0,1].capitalize
+
         %span.mdl-navigation__link= "Logged in as #{current_user.name}"
         = link_to "Logout", logout_url, class: 'mdl-navigation__link' 
 .mdl-layout__drawer

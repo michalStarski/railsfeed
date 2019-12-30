@@ -4,7 +4,7 @@
   %ul.highlighted-subs__list
     - @highlighted_subs.each do |sub|
       %a{ :href => sub_path(sub) }
-        - if sub.background_pic.nil?
+        - if sub.background_pic.attached?
           %li.demo-card-image.mdl-card.mdl-shadow--2dp{ :style => "background-image: url('#{url_for(sub.background_pic)}')" }
             %span.demo-card-image__subname= sub.name 
         - else
@@ -16,6 +16,15 @@
 - if current_user
   %section.feed
     %h2.feed__title My feed
-    %div= @my_feed_posts
+    .mdl-grid
+      - @my_feed_posts.each do |post|
+        .mdl-cell.mdl-cell--6-col.mdl-cell--8-col-tablet.mdl-cell--12-col-phone
+          .demo-card-wide.mdl-card.mdl-shadow--2dp.post-thumbnail{:style => "background-image: #{post.thumbnail ? "url('" + url_for(post.thumbnail) + "')" : "none"}"}
+          .mdl-card__title
+            %h2.mdl-card__title-text= post.title
+          .mdl-card__actions.mdl-card--border
+            %a{:href => "/posts/#{post.id}", :class => "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"} See more 
+          .mdl-card__menu
+            %button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
     
     %a{ :href => "#" } See more

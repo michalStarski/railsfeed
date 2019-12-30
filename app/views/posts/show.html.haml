@@ -11,7 +11,14 @@
   %h1= @post.title
   %div.post__metadata
     %p= "Created by:"
-    %span.post__author-name= @user.name
+    %div.post__author-wrapper
+      - if @user.avatar.attached?
+        %div{ :style => "background-image: url('#{url_for(@user.avatar)}')",
+        :class => "nav-avatar nav-avatar--with-avatar" }
+      - else
+        %div.nav-avatar.nav-avatar--without-avatar
+          = @user.name[0,1].capitalize
+      %span.post__author-name= @user.name
     %p= "Creation date: #{@post.created_at}"
     %p= "Likes: #{@likes}"
     %p= "Dislikes: #{@dislikes}"
